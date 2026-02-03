@@ -1,0 +1,111 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "flowbite/src/themes/default";
+@source "../**/*.php";
+@source "../**/*.html";
+
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+
+
+@theme {
+  /* Paleta */
+  --teal: #084c61;
+  --drkTeal: #053a4b;
+  --accentC: #ff8000;
+  --drkAccent:#d4700b;
+
+  /* Fuentes tipográficas */
+  --font-principal: "Inter", sans-serif;
+  --font-titulos: "Playfair Display", serif;
+
+  --text-xxs:0.5rem;
+  --cursor-cross: url('img/x-solid-full.svg') 16 16;
+}
+
+.bg-teal-500 {
+    background-color: var(--drkTeal);
+}
+
+.bg-accentC {
+    background-color: var(--accentC);
+}
+.bg-accentC:hover {
+    background-color: var(--drkAccent);
+}
+
+table#facturas .dateBadge{
+    font-size: var(--text-xxs);
+}
+
+.peer-focus\:text-fg-brand {
+    &:is(:where(.peer):focus ~ *) {
+        color: var(--drkTeal);
+    }
+}
+
+.focus\:border-brand {
+    &:focus {
+        border-color: var(--drkTeal);
+    }
+}
+
+table input {
+    cursor: pointer;
+}
+table input:disabled {
+    cursor:auto;
+    opacity: 0.4;
+}
+
+button:hover ,
+a:hover {
+    cursor: pointer;
+}
+/* scrollbar */
+@layer base {
+  /* 1. Definimos el ancho total del área de scroll */
+  ::-webkit-scrollbar {
+    width: 10px;  /* Ancho vertical */
+    height: 10px; /* Ancho horizontal */
+  }
+
+  /* 2. Quitamos las flechas (steppers) de raíz */
+  ::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0;
+    height: 0;
+  }
+
+  /* 3. La pista (el fondo del scroll) - transparente para que no tape nada */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* 4. La barrita (el thumb) - El secreto del minimalismo */
+  ::-webkit-scrollbar-thumb {
+    /* Usamos tu color teal con transparencia */
+    background-color: color-mix(in srgb, var(--teal), transparent 50%);
+    
+    /* Redondeamos la barrita misma */
+    border-radius: 20px;
+
+    /* EL TRUCO PARA EL BORDER-RADIUS DEL CONTENEDOR: */
+    /* Creamos un borde transparente grueso que hace de "margen" */
+    border: 3px solid transparent;
+    /* Obligamos al color a quedarse solo en el contenido, sin tocar el borde */
+    background-clip: content-box;
+  }
+
+  /* 5. Efecto al pasar el mouse */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--teal);
+  }
+
+  /* 6. Soporte para Firefox (más limitado pero minimalista) */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--teal), transparent 50%) transparent;
+  }
+}
