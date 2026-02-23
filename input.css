@@ -24,15 +24,31 @@
   --cursor-cross: url('img/x-solid-full.svg') 16 16;
 }
 
-.bg-teal-500 {
+.bg-teal-500 ,
+.dark\:bg-teal-500{
     background-color: var(--drkTeal);
 }
+.bg-teal-400{
+  background-color: var(--teal);
+}
 
+.bg-teal-100 {
+  background-color: #0e80a4ab;
+}
+.border-teal-200 {
+  border-color:var(--teal);
+}
+.text-teal-200 {
+  color:#e8f9ff!important;
+}
 .bg-accentC {
     background-color: var(--accentC);
 }
 .bg-accentC:hover {
     background-color: var(--drkAccent);
+}
+.border-accentC {
+  border-color:var(--accentC)
 }
 
 table#facturas .dateBadge{
